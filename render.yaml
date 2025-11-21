@@ -35,14 +35,16 @@ services:
           name: eterna-redis
           property: connectionString
 
+  # Redis Service
+  - type: redis
+    name: eterna-redis
+    plan: free
+    ipAllowList: [] # Internal access only
+
 databases:
   - name: eterna-db
     plan: free
     databaseName: eterna
     user: eterna
 
-  # Redis Service
-  - type: redis
-    name: eterna-redis
-    plan: free
-    ipAllowList: [] # Internal access only
+
