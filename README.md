@@ -1,5 +1,8 @@
 # High-Frequency Order Execution Engine (Solana DEX Routing)
 
+## Live Demo
+**Public URL:** https://eterna-labs-backend-production.up.railway.app
+
 ## Overview
 This is a backend system that processes user orders, routes them to the best decentralized exchange (DEX) (simulated Raydium/Meteora), and provides real-time updates via WebSockets.
 
