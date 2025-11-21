@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum OrderStatus {
+  pending
+  routing
+  building
+  submitted
+  confirmed
+  failed
+}
+
+model Order {
+  id             String      @id @default(uuid())
+  userId         String
+  tokenIn        String
+  tokenOut       String
+  amount         Float
+  status         OrderStatus @default(pending)
+  txHash         String?
+  executionPrice Float?
+  dexProvider    String?
+  logs           Json?       @default("[]")
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}

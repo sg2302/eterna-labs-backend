@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEX Router Test</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .logs {
+            background: #f0f0f0;
+            padding: 1rem;
+            border-radius: 8px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+        }
+
+        button {
+            background: #0070f3;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #ccc;
+        }
+
+        input {
+            padding: 0.5rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>High-Frequency DEX Router</h1>
+
+    <div class="card">
+        <h3>Execute Order</h3>
+        <input type="text" id="tokenIn" value="SOL" placeholder="Token In">
+        <input type="text" id="tokenOut" value="USDC" placeholder="Token Out">
+        <input type="number" id="amount" value="1.5" placeholder="Amount">
+        <button id="executeBtn" onclick="executeOrder()">Execute Swap</button>
+    </div>
+
+    <div class="card" id="routingCard" style="display: none;">
+        <h3>Routing Details</h3>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+            <div id="raydiumBox" style="padding: 1rem; border: 1px solid #eee; border-radius: 4px; width: 45%;">
+                <strong>Raydium</strong><br>
+                <span id="raydiumPrice">Checking...</span>
+            </div>
+            <div id="meteoraBox" style="padding: 1rem; border: 1px solid #eee; border-radius: 4px; width: 45%;">
+                <strong>Meteora</strong><br>
+                <span id="meteoraPrice">Checking...</span>
+            </div>
+        </div>
+        <div id="decisionBox" style="text-align: center; font-weight: bold; color: #0070f3;"></div>
+    </div>
+
+    <div class="card">
+        <h3>Live Logs</h3>
+        <div id="logs" class="logs"></div>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
