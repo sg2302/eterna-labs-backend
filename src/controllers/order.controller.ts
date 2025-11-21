@@ -5,10 +5,12 @@ import { Queue } from 'bullmq';
 import Redis from 'ioredis';
 
 const prisma = new PrismaClient();
-const redis = new Redis({
-    host: process.env.REDIS_HOST || 'localhost',
-    port: Number(process.env.REDIS_PORT) || 6379,
-});
+const redis = process.env.REDIS_URL
+    ? new Redis(process.env.REDIS_URL)
+    : new Redis({
+        host: process.env.REDIS_HOST || 'localhost',
+        port: Number(process.env.REDIS_PORT) || 6379,
+    });
 
 const tradeQueue = new Queue('trade-queue', {
     connection: redis,
