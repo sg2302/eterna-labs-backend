@@ -41,7 +41,7 @@ databases:
     databaseName: eterna
     user: eterna
 
-services:
+  # Redis Service
   - type: redis
     name: eterna-redis
     plan: free
