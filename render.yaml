@@ -17,8 +17,8 @@ services:
           name: eterna-redis
           property: connectionString
 
-  # Background Worker
-  - type: worker
+  # Background Worker (Running as Web Service for Free Tier)
+  - type: web
     name: eterna-worker
     env: node
     plan: free
