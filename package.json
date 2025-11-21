@@ -4,6 +4,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "start:worker:prod": "node dist/worker.js",
+    "postinstall": "prisma generate",
     "start:server": "ts-node src/server.ts",
     "start:worker": "ts-node src/worker.ts",
     "dev:server": "nodemon src/server.ts",
